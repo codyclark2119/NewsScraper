@@ -17,6 +17,10 @@ body { background-color: rgb(189, 114, 28) }
   border: black 3px solid;
 }
 
+#news:hover {
+  border: red 4px solid;
+}
+
 #news p {
   font-family: 'Oswald', sans-serif;
 }
