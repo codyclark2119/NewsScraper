@@ -10,7 +10,6 @@ body { background-color: rgb(189, 114, 28) }
   overflow: auto;
   height: 370px;
   border: black 5px solid;
-  margin-top: 7%;
 }
 
 #news {
@@ -34,6 +33,16 @@ body { background-color: rgb(189, 114, 28) }
 
 #notes {
   float: right;
+  border: 3px black solid;
+}
+
+#the-title {
+  border-bottom: 4px black solid;
+  margin-bottom: 3%;
+}
+
+.notetitle {
+  font-weight: bold;
 }
 
 textarea, input {
