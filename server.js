@@ -97,7 +97,6 @@ app.get("/scrape", function(req, res) {
       });
       // If we were able to successfully scrape and save an Article, send a message to the client
       console.log("MSNBC Complete");
-      res.send("Scrape Complete");
       thirdScrape();
     });
   }
@@ -167,11 +166,10 @@ app.get("/scrape", function(req, res) {
           });
       });
       // If we were able to successfully scrape and save an Article, send a message to the client
-      res.send("Scrape Complete");
       console.log("Democracy Now! Complete");
+      return res.redirect("/");
     });
   }
-
 });
 
 

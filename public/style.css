@@ -1,11 +1,23 @@
-body { background-color: rgb(189, 114, 28) }
+body { 
+  background-image: url("https://media.glassdoor.com/l/55/dd/db/1f/newsroom.jpg");
+  background-color: #cccccc;
+  height: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.thecontainers{
+  background-color: rgb(189, 114, 28);
+  border: black 2px solid;
+}
 
 #articles {
   display: inline-block;
   overflow: auto;
   height: 575px;
   border: black 9px solid;
-  
 }
 
 #savenote {
@@ -58,6 +70,12 @@ body { background-color: rgb(189, 114, 28) }
 textarea, input {
   display: block;
   background-color: #FCF5C7;
+  border: black 2px solid;
+}
+
+.scrapeBtn {
+  padding: 2%;
+  margin: 2%;
 }
 
 input {
@@ -76,16 +94,20 @@ textarea {
 
 #the-title {
   height: 100%;
-  margin-left: 13%;
+  width:100%;
+  background-color: rgb(189, 114, 28);
+  border-bottom: black 2px solid;
 }
 
 #title-right {
-  margin-left:13%;
+  margin-left:26%;
   font-size:450%;
 }
 
 #title {
   font-size:450%;
+  margin-left: 13%;
+
 }
 
 #storyTag {
