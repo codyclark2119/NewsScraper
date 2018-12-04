@@ -11,23 +11,36 @@
 </head>
 
 <body>
-  <div id="wrapper" class="container">
+  <div id="the-title" class="container-fluid">
+    <h1 id="title"><u>All the news...</u></h1>
+    <h1 id="title-right"><i><u>...fit to scrape.</u></i></h1>
+  </div>
+
+  <br><br>
+
+  <div id="wrapper" class="container-fluid">
+
     <div class="row">
-      <div id="the-title" class="col-lg-12">
-        <h1 id="title">All the news...</h1>
-        <h2 id="title" class="float-right"><i>...fit to scrape.</i></h2>
+
+      <span class="col-lg-1"></span>
+      <div class="container-fluid col-lg-5 text-center">
+        <h3 id="storyTag">Top Stories:</h3>
+        <div class="container-fluid" id="articles"></div>
       </div>
 
-      <div class="col-lg-7 float-left text-center">
-        <h3>Top Stories:</h3>
-        <div class="container" id="articles"></div>
+
+      <div class="container col-lg-5 text-center">
+        <div id="notes" class="container">
+
+        </div>
       </div>
       <span class="col-lg-1"></span>
-      <div class="col-lg-4 text-center">
-        <div id="notes" class="container"></div>
-      </div>
+
     </div>
+
   </div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>

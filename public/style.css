@@ -1,19 +1,20 @@
 body { background-color: rgb(189, 114, 28) }
-#wrapper {
-  width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 #articles {
   display: inline-block;
   overflow: auto;
-  height: 370px;
-  border: black 5px solid;
+  height: 575px;
+  border: black 9px solid;
+  
+}
+
+#savenote {
+  padding: 2%;
+  margin-bottom: 2%;
 }
 
 #news {
-  border: black 3px solid;
+  border: black 4px solid;
 }
 
 #news:hover {
@@ -22,45 +23,71 @@ body { background-color: rgb(189, 114, 28) }
 
 #news p {
   font-family: 'Oswald', sans-serif;
+  font-size: 175%;
+  margin: 3%;
 }
 
 #news a {
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
   color: black;
-  font-size: 150%;
+  font-size: 165%;
+  width: 150%;
+}
+
+#userComment {
+  border: black 4px solid; 
+  margin: 1%;
+  margin-right: 1%;
 }
 
 #notes {
   float: right;
-  border: 3px black solid;
-}
-
-#the-title {
-  border-bottom: 4px black solid;
-  margin-bottom: 3%;
+  border: 6px black solid;
+  margin-top: 11%;
 }
 
 .notetitle {
   font-weight: bold;
+  font-size: 200%;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  border-bottom: black 3px solid;
 }
 
 textarea, input {
   display: block;
-  width: 100%;
   background-color: #FCF5C7;
 }
 
 input {
   height: 36px;
+  width: 45%;
   font-size: 24px;
+  background-color: white;
 }
 
 textarea {
-  height: 200px;
+  height: 100px;
+  width:100%;
   font-size: 18px;
+  background-color: white;
+}
+
+#the-title {
+  height: 100%;
+  margin-left: 13%;
+}
+
+#title-right {
+  margin-left:13%;
+  font-size:450%;
 }
 
 #title {
-  font-size: 500%
+  font-size:450%;
+}
+
+#storyTag {
+  font-size: 400%;
 }

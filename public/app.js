@@ -16,9 +16,10 @@ $.getJSON("/articles", function (data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<br><div id='news' data-id='"+ data[i]._id +"'><p>" + data[i].title + "</p><a target='_blank' href='" + data[i].link + "'>NEWS LINK</a></div><br>");
+    $("#articles").append("<br><div id='news' data-id='" + data[i]._id + "'><p>" + data[i].title + "</p><a target='_blank' href='" + data[i].link + "'>NEWS LINK</a></div><br>");
   }
   $("#notes").hide();
+  $("#comments").hide();
 });
 
 // Whenever someone clicks a p tag
@@ -26,6 +27,8 @@ $(document).on("click", "#news", function () {
   // Empty the notes from the note section
   $("#notes").empty();
   $("#notes").show();
+  $("#comments").empty();
+  $("#comments").show();
   // Save the id from the p tag
   var thisId = $(this).attr("data-id");
 
@@ -38,22 +41,24 @@ $(document).on("click", "#news", function () {
     .then(function (data) {
       console.log(data);
       // The title of the article
-      
-      $("#notes").append("<h5 class='notetitle'>" + data.title + "</h5>");
-      // An input to enter a new title
-      $("#notes").append("<input id='titleinput' name='title' placeholder='Title' ><br>");
-      // A textarea to add a new note body
-      $("#notes").append("<textarea id='bodyinput' name='body' placeholder='Comment'></textarea><br>");
-      // A button to submit a new note, with the id of the article saved to it
-      $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+
+      $("#notes").append("<h2 class='notetitle'>" + data.title + "</h2>");
 
       // If there's a note in the article
       if (data.note) {
-        // Place the title of the note in the title input
-        $("#titleinput").val(data.note.title);
+        // Place the value of the note in the user input
+        $("#notes").append("<div class='container' id='userComment'><h6><i>Last Comment:</i></h6><h4>" + data.note.user + "</h4><div>");
         // Place the body of the note in the body textarea
-        $("#bodyinput").val(data.note.body);
+        $("#userComment").append("<h3 class='userComment text-left'><strong>" + data.note.body + "</strong></h3><br>");
       }
+      // An input to enter a new user
+      $("#notes").append("<br><input id='userinput' name='user' placeholder='Username' ><br>");
+      // A textarea to add a new note body
+      $("#notes").append("<textarea id='bodyinput' name='body' placeholder='Comment'></textarea><br>");
+      // A button to submit a new note, with the id of the article saved to it
+      $("#notes").append("<button data-id='" + data._id + "' class='btn btn-success' id='savenote'>Save Note</button><br>");
+
+
     });
 });
 
@@ -67,8 +72,8 @@ $(document).on("click", "#savenote", function () {
     method: "POST",
     url: "/articles/" + thisId,
     data: {
-      // Value taken from title input
-      title: $("#titleinput").val(),
+      // Value taken from user input
+      user: $("#userinput").val(),
       // Value taken from note textarea
       body: $("#bodyinput").val()
     }
@@ -79,9 +84,12 @@ $(document).on("click", "#savenote", function () {
       console.log(data);
       // Empty the notes section
       $("#notes").empty();
+      $("#notes").hide();
+      $("#comments").empty();
+      $("#comments").hide();
     });
 
   // Also, remove the values entered in the input and textarea for note entry
-  $("#titleinput").val("");
+  $("#userinput").val("");
   $("#bodyinput").val("");
 });
