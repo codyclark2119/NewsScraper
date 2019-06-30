@@ -12,8 +12,8 @@ var cheerio = require("cheerio");
 var db = require("./models");
 
 let PORT = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
+if (PORT == null || PORT == "") {
+  PORT = 8000;
 }
 
 // Initialize Express
@@ -53,11 +53,9 @@ app.get("/scrape", function(req, res) {
       result.link = $(this)
         .children("a")
         .attr("href");
-      console.log("RESULT", result);
       if ((result.link).startsWith("/")){
         var foxlink = "https://www.foxnews.com";
         result.link = foxlink + result.link;
-        console.log(result.link);
       }
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
@@ -102,7 +100,7 @@ app.get("/scrape", function(req, res) {
       console.log("MSNBC Complete");
       thirdScrape();
     });
-  }
+  };
 
   const thirdScrape = function () {
     axios.get("https://www.breitbart.com/politics/").then(function (response) {
@@ -135,7 +133,7 @@ app.get("/scrape", function(req, res) {
       fourthScrape();
 
     });
-  }
+  };
 
   const fourthScrape = function () {
     axios.get("https://www.democracynow.org/").then(function (response) {
@@ -158,7 +156,6 @@ app.get("/scrape", function(req, res) {
         if ((result.link).startsWith("/")){
           var demlink = "https://www.democracynow.org";
           result.link = demlink + result.link;
-          console.log(result.link);
         }
 
         // Create a new Article using the `result` object built from scraping
@@ -172,7 +169,7 @@ app.get("/scrape", function(req, res) {
       console.log("Democracy Now! Complete");
       return res.redirect("/");
     });
-  }
+  };
 });
 
 
