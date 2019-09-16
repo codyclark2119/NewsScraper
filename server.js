@@ -217,7 +217,7 @@ app.post("/articles/:id", function (req, res) {
         note: dbNote._id
       }, {
         new: true
-      });
+      }).populate("note");
     })
     .then(function (dbArticle) {
       // If we were able to successfully update an Article, send it back to the client

@@ -17,7 +17,7 @@ $.getJSON("/articles", function (data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append(`<div id='${data[i]._id}' class='container col-lg-12 m-1 news'><h3 class='p-2'>${data[i].title}</h3><button class='m-2 btn btn-primary' target='_blank' href='${data[i].link}'>Read it here!</button><div class='m-2 btn btn-secondary commentBtn' data-id='${data[i]._id}'>Comment</div></div><br>`);
+    $("#articles").append(`<div id='${data[i]._id}' class='col-sm-12 m-1 news'><h3 class='p-2'>${data[i].title}</h3><button class='m-2 btn btn-primary' target='_blank' href='${data[i].link}'>Read it here!</button><div class='m-2 btn btn-secondary commentBtn' data-id='${data[i]._id}'>Comment</div></div><br>`);
     $(".notes").hide();
   }
 
@@ -38,17 +38,17 @@ $(document).on("click", ".commentBtn", function () {
     url: "/articles/" + thisId
   }).then(function (data) {
     data = JSON.parse(JSON.stringify(data));
-    $('#' + thisId).append(`<div class='notes row m-1 mt-1 container-fluid'></div>`);
+    $('#' + thisId).append(`<div class='container-fluid notes row border-top border-dark ml-0'></div>`);
     // If there's a note in the article
-    $(".notes").append(`<div class='container input-group col-5'></div>`);
-    $(".input-group").append(`<input type='text' id='userinput' name='user' placeholder='Username'></input><br><textarea id='bodyinput' name='body' placeholder='Comment'></textarea>`)
-    $(".input-group").append(`<br><button data-id='${thisId}' class='btn btn-success' id='savenote'>Save Note</button>`);
+    $(".notes").append(`<div class='container input-group mx-auto my-2 col-5'><h4 class='mx-auto'>Write a comment!<h4></div>`);
+    $(".input-group").append(`<input type='text' id='userinput' name='user' placeholder='Username'></input><textarea id='bodyinput' name='body' placeholder='Comment'></textarea>`)
+    $(".input-group").append(`<br><button data-id='${thisId}' class='btn btn-success mx-auto' id='savenote'>Save Note</button>`);
     if (data.note) {
       console.log(data.note);
       // Place the value of the note in the user input
-      $(".notes").append(`<div class='container col-5 mx-auto' id='userComment'><h6><i>Last Comment:</i></h6><h3>${data.note.user}</h3><h5><strong>${data.note.body}</strong></h5><br><div>`);
+      $(".notes").append(`<div class='container col-5 mx-auto my-2' id='userComment'><h6><i>Last Comment:</i></h6><h3 id='userName'>${data.note.user}</h3><h5 id='userText'><strong>${data.note.body}</strong></h5><br><div>`);
     } else {
-      $(".notes").append(`<div class='container col-5' id='userComment'><h6 class='mt-3'><i>Last Comment:</i></h6><h4>No comments available</h4><div>`);
+      $(".notes").append(`<div class='container col-5 mx-auto my-2' id='userComment'><h6 class='mt-3'><i>Last Comment:</i></h6><h3 id='userName'>No user name</h3><h5 id='userText'>No comments available</h5><div>`);
     }
   });
 });
@@ -73,6 +73,7 @@ $(document).on("click", "#savenote", function () {
       // Log the response
       console.log(data);
       // Empty the notes section
-      $("#notes").hide();
+      $("#userName").text(data.note.user);
+      $("#userText").text(data.note.body);
     });
 });

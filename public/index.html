@@ -2,7 +2,8 @@
 <html lang="en-us">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>All the news fit to Scrape</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,24 +15,24 @@
 <body>
   <nav class="navbar">
     <div class="container">
-      <h1><u>All the news...<br><i class="ml-5">...fit to scrape.</u></i></h1>
+      <h3><u>All the news...<br><i class="ml-5">...fit to scrape.</u></i></h3>
     </div>
   </nav>
 
 
-  <div id="newsContainer" class="container-fluid text-center">
-    <h2 class="float-left m-4">Top Stories:</h2>
-    <div class="float-right m-4">
-      <a href="/scrape" class="btn btn-danger">Scrape
-        the News</a>
+  <div id="newsContainer" class="container mx-auto mt-5">
+    <div class="row sticky-top border-bottom border-dark">
+      <h2 class="m-4">Top Stories:</h2>
+      <div class="ml-auto m-4">
+        <a href="/scrape" class="btn btn-danger">Scrape
+          the News</a>
+      </div>
     </div>
-    <div class="row container mx-auto" id="articles">
+
+    <div class="row container mx-auto mt-2 text-center" id="articles">
 
     </div>
   </div>
-
-
-
 
   <script src="https://code.jquery.com/jquery-3.4.1.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

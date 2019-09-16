@@ -10,16 +10,13 @@ body {
   background-position: center;
   background-size: cover;
   position: relative;
-  height: 100%;
 }
 
 #newsContainer {
   background-color: lightskyblue;
   border: black 2px solid;
-  margin: 2% auto 0 auto;
-  height: 750px;
-  width: 75%;
-  overflow: hidden;
+  max-height: 500px;
+  overflow: scroll;
 }
 
 .navbar {
@@ -27,13 +24,15 @@ body {
   border-bottom: black 2px solid;
 }
 
+.sticky-top{
+  background-color: lightskyblue;
+}
 
 #articles {
   display: inline-block;
   overflow: auto;
   border: black 9px solid;
-  height: 625px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .news {
@@ -50,84 +49,3 @@ body {
   margin: 1px;
 }
 
-/* 
-#news p {
-  font-family: 'Oswald', sans-serif;
-  font-size: 175%;
-  margin: 3%;
-}
-
-#news a {
-  font-family: 'Oswald', sans-serif;
-  font-weight: bold;
-  color: black;
-  font-size: 165%;
-  width: 150%;
-}
-
-#userComment {
-  border: black 4px solid;
-  margin: 1%;
-  margin-right: 1%;
-}
-
-#notes {
-  float: right;
-  border: 6px black solid;
-}
-
-.notetitle {
-  font-weight: bold;
-  font-size: 200%;
-  margin-top: 4%;
-  margin-bottom: 2%;
-  border-bottom: black 3px solid;
-}
-
-textarea,
-input {
-  display: block;
-  background-color: #FCF5C7;
-  border: black 2px solid;
-}
-
-.scrapeBtn {
-  padding: 2%;
-  margin: 2%;
-}
-
-input {
-  height: 36px;
-  width: 45%;
-  font-size: 24px;
-  background-color: white;
-}
-
-textarea {
-  height: 100px;
-  width: 100%;
-  font-size: 18px;
-  background-color: white;
-}
-
-#the-title {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(189, 114, 28);
-  border-bottom: black 2px solid;
-}
-
-#title-right {
-  margin-left: 26%;
-  font-size: 450%;
-}
-
-#title {
-  font-size: 450%;
-  margin-left: 13%;
-
-}
-
-#storyTag {
-  font-size: 400%;
-} */
