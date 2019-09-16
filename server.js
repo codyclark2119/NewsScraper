@@ -30,6 +30,9 @@ mongoose.connect("mongodb://localhost/scraperhw", {
 });
 
 // Routes
+app.get("/", function(req, res) {
+  res.json(path.join(__dirname, "public/index.html"));
+});
 // A GET route for scraping the echoJS website
 app.get("/scrape", function (req, res) {
   // First, we grab the body of the html with request
